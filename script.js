@@ -43,7 +43,9 @@ class Snake {
 		}
 		this.sbody = [];
 		this.head = [10,10];
+		this.dtail=[10,13];
 		this.tail =3;
+		this.shead = 0;
 		this.atail = []
 		this.ind = 1;
 		this.ind1 = 0;
@@ -125,16 +127,19 @@ class Snake {
 		}
 	}
 
-	step(x,y){
+	step(x=0,y=0){
 		this.head[this.ind] = this.head[this.ind]+this.mul;
 		pole[this.atail[this.tail][0]] [this.atail[this.tail][1]]=0;
 		this.atail[this.tail][0]=this.head[0];
 		this.atail[this.tail][1]=this.head[1];	
 		this.sbody[this.tail].style.left = this.head[0]*15+x+'px';
-		this.sbody[this.tail].style.top = this.head[1]*15++y+'px';
+		this.sbody[this.tail].style.top = this.head[1]*15+y+'px';
 	}
 
 	check(){
+		if (pole[this.atail[this.tail][0]] [this.atail[this.tail][1]]==2){
+			
+		}
 		switch (pole[this.head[0]][this.head[1]]) {
 			case 2:
 				this.sbody.push(this.feed);
@@ -175,12 +180,17 @@ class Snake {
 				break;
 		}
 		this.isstep =true;
-		if (this.tail!=0){
+		this.sbody[this.tail].className='cbody';
+		this.sbody[this.shead].className='cbody';
+		this.shead = this.shead!=0?this.shead-1:this.sbody.length-1;
+		this.tail=this.tail!=0?this.tail-1:this.sbody.length-1;
+		/*if (this.tail!=0){
 			this.tail--;
 		}
 		else{
 			this.tail = this.sbody.length-1;
-		}		
+		}*/	
+		this.sbody[this.shead].className='head';
 	}
 }
 
