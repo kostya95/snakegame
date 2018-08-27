@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>змейка</title>
+	<style type="text/css">
+		html {
+			overflow: hidden;
+		}
+		@font-face {
+			font-family: myfont;
+			src: url(font.ttf);
+			
+		}
+		body {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 600px;
+		}
+		#snake {
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			bottom: 20px;
+			left: 518px;
+			border: 15px solid blue;
+			-o-border-image: url('stone.jpg') 15% repeat;
+			   border-image: url('stone.jpg') 15% repeat;
+			background-image: url('grace.jpg');
+			background-size: 15px 15px;
+		}
+		.cbody{
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border: 1px solid white;
+			border-radius: 3px;
+			background-image: url('snake.jpeg');
+			background-size: 30px 30px;
+		}
+		.head {
+			background-image: url('head.png');
+			position: absolute;
+			width: 19px;
+			height: 15px;
+		}
+		.score {
+			position: absolute;
+			font-family: myfont;
+			right: 30px;
+			font-size: 2em;
+		}
+		.button {
+			padding-top: 15px; 
+			text-align: center;
+			width: 200px;
+			height: 40px;
+			border: 1px solid #6FFF31FF;
+			font-family: myfont;
+			font-size: 2em;
+			cursor: pointer;
+		}
+		.button:hover {
+			box-shadow: 0 0 3px 3px #6FFF31FF;
+		}
+		#manage {
+			width: 1366px;
+			display: flex;
+			justify-content: space-around;
+			position: absolute;
+			top: 150px;
+
+		}
+	</style>
+	<script src="script.js"></script>
+</head>
+<body onkeydown="console.log('1');snake.changeDir(event)">
+	<div class="score" class="none">Счет:<span id='score'>0</span></div>
+	<div id="snake" >
+		
+	</div>
+	<div id='manage'>
+		<div class="button" onclick="game1.start()">Старт</div>
+		<div class="button" onclick="game1.stop()">Стоп</div>
+		<div class="button">Заново</div>
+	</div>
+	<script type="text/javascript">
+		game1 = new Game();
+	
+	</script>
+</body>
+</html>
