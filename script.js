@@ -1,6 +1,6 @@
 'use strict';
 var direct = 'up';
-var speed = 500;
+var speed = 600;
 var pole = [];
 var screen; 
 var snake;
